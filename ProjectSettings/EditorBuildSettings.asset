@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameLevel-Tadas.unity
     guid: eccf1ab57e70e7a4da2785d91428a9cb
+  - enabled: 1
+    path: Assets/Scenes/GameLevel-Tautvydas.unity
+    guid: 556069cd5c779974d81f85371aea6d22
   m_configObjects: {}
