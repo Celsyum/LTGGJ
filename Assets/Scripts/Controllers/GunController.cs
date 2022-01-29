@@ -1,3 +1,4 @@
+using GGJ.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,28 +6,33 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
 	PlayerController pl;
+	GameStats stats;
 
 
-	/**
-	 * seconds
-	 * */
-	public float fireRate = 0.1f;
-
-	public float gun1Damage = 0.5f;
-	public float gun2Damage = 0.5f;
-
-	private float currentDamage = 0f;
 	private float canFire = 1f;
 
-	public GameStateEnum gunStatus;
+	GunData gunData = new GunData();
 
     // Start is called before the first frame update
     void Start()
     {
-		pl = GetComponent<PlayerController>();
-		canFire = fireRate;
-		currentDamage = gun1Damage;
-		gunStatus = GameStateEnum.Mater;
+		pl = GetComponent<PlayerController>();;
+		stats = Game.GetModel<GameStats>();
+		//gunStatus = GameStateEnum.Mater;
+		findGunData(gunData.type);
+		canFire = gunData.fireRate;
+	}
+
+	void findGunData(GunTypeEnum type)
+	{
+		foreach (GunData item in stats.guns)
+		{
+			if (item.type == type)
+			{
+				gunData = item;
+				return;
+			}
+		}
 	}
 
     // Update is called once per frame
@@ -39,7 +45,7 @@ public class GunController : MonoBehaviour
 	{
 		if (canFire < 0)
 		{
-			canFire = fireRate;
+			canFire = gunData.fireRate;
 			doShooting();
 			return true;
 		}
@@ -49,10 +55,11 @@ public class GunController : MonoBehaviour
 
 	public bool swap()
 	{
-		if (gunStatus == GameStateEnum.Antimater)
+		if (gunData.type == GunTypeEnum.Mater)
 		{
-
-		}
+			findGunData(GunTypeEnum.Antimater);
+		} else findGunData(GunTypeEnum.Mater);
+		canFire = 0;   ///reset gun shooting
 		return true;
 	}
 
