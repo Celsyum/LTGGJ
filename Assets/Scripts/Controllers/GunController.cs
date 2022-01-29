@@ -8,6 +8,7 @@ public class GunController : MonoBehaviour
 	PlayerController pl;
 	GameStats stats;
 
+	public LineRenderer lineRenderer;
 
 	private float canFire = 1f;
 
@@ -16,6 +17,7 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		if (lineRenderer == null) Debug.Log("lineRenderer not set");
 		pl = GetComponent<PlayerController>();;
 		stats = Game.GetModel<GameStats>();
 		//gunStatus = GameStateEnum.Mater;
@@ -65,9 +67,31 @@ public class GunController : MonoBehaviour
 
 	void doShooting()
 	{
+		switch (gunData.type)
+		{
+			case GunTypeEnum.Mater:
+				projectileShooting();
+				break;
+			case GunTypeEnum.Antimater:
+				raycastShooting(); 
+				break;
+			default:
+				break;
+		}
+		
+	}
+
+	void projectileShooting()
+	{
+		Debug.Log("shoot projectile");
+	}
+
+	void raycastShooting()
+	{
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, 500);
 		if (hit.collider != null)
 		{
+			Debug.Log("shot1");
 			// Calculate the distance from the surface and the "error" relative
 			// to the floating height.
 			//float distance = Mathf.Abs(hit.point.y - transform.position.y);
@@ -77,8 +101,22 @@ public class GunController : MonoBehaviour
 			{
 				EnemyController en = hit.transform.GetComponent<EnemyController>();
 				//en.Damage()
+
+				lineRenderer.SetPosition(0, pl.transform.position);
+				lineRenderer.SetPosition(1, hit.point);
 			}
-			
+
+		} else
+		{
+			Debug.Log("shot2");
+			Vector3 playerDirection = pl.transform.forward;
+			Quaternion playerRotation = pl.transform.rotation;
+			float spawnDistance = 300;
+
+			Vector3 spawnPos = pl.transform.position + playerDirection * spawnDistance;
+
+			lineRenderer.SetPosition(0, pl.transform.position);
+			lineRenderer.SetPosition(1, spawnPos);
 		}
 	}
 }

@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea524f33f52ab841a73e885e93a93e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.1
+  lineRenderer: {fileID: 6895052585508413665}
   gun1Damage: 0.5
   gun2Damage: 0.5
   gunStatus: 0
