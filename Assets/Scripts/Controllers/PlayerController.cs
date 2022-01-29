@@ -1,3 +1,4 @@
+using GGJ.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,14 +12,16 @@ public class PlayerController : MonoBehaviour
 
     float horizontal;
     float vertical;
+	GameStats stats;
 
 public float runSpeed = 20.0f;
     // Start is called before the first frame update
     void Start()
     {
-       rb = GetComponent<Rigidbody2D>();
-       this.gameObject.AddComponent<AudioSource>();
-       this.GetComponent<AudioSource>().clip = clip;
+		stats = Game.GetModel<GameStats>();
+		rb = GetComponent<Rigidbody2D>();
+		this.gameObject.AddComponent<AudioSource>();
+		this.GetComponent<AudioSource>().clip = clip;
     }
 
     // Update is called once per frame
@@ -38,7 +41,8 @@ public float runSpeed = 20.0f;
     }
 
     void Shoot () 
-    {        
+    {
+		stats.BulletShots++;
         this.GetComponent<AudioSource>().Play();
     }
     
