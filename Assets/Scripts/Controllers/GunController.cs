@@ -9,6 +9,7 @@ public class GunController : MonoBehaviour
 	GameStats stats;
 
 	public LineRenderer lineRenderer;
+	public LayerMask checkLayers;
 	public Transform laserSpawn;
 	private float canFire = 1f;
 	private Vector3 mousePos;
@@ -91,8 +92,9 @@ public class GunController : MonoBehaviour
 
 	IEnumerator raycastShooting()
 	{
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, 500);
-		
+		//RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, checkLayers);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, 500f, checkLayers);
+
 		if (hit.collider != null)
 		{
 
@@ -101,6 +103,7 @@ public class GunController : MonoBehaviour
 			//float distance = Mathf.Abs(hit.point.y - transform.position.y);
 			//float heightError = floatHeight - distance;
 			int layer = hit.collider.gameObject.layer;
+			Debug.Log(layer);
 			if (layer == 7 || layer == 8)
 			{
 				EnemyController en = hit.transform.GetComponent<EnemyController>();
