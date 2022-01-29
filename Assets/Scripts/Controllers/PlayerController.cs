@@ -19,11 +19,6 @@ public class PlayerController : MonoBehaviour
 	GunController gun;
 
 	public float runSpeed = 20.0f;
-	/**
-	 * seconds
-	 * */
-	public float fireRate = 0.1f;
-
 
 
     // Start is called before the first frame update
@@ -70,7 +65,7 @@ public class PlayerController : MonoBehaviour
 		if (gun.shoot())
 		{
 			Debug.Log("shot");
-			Physics2D.Raycast(transform.position, this.transform.forward, 500);
+			
 			stats.BulletShots++;
 			this.GetComponent<AudioSource>().Play();
 		}
