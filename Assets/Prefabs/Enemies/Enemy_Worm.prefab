@@ -93,11 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.319878
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -29.309803
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.z
@@ -109,15 +109,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -139,9 +139,21 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: 3000
       objectReference: {fileID: 0}
+    - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Radius
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_BaseOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7927636841745839139, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_Name
-      value: Enemy_Worm
+      value: Enemy_Worm (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7927636841745839139, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_Layer

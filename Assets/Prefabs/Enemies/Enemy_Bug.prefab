@@ -94,11 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.37
+      value: -6.092766
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.22
+      value: -30.027256
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.z
@@ -110,15 +110,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -151,6 +151,18 @@ PrefabInstance:
     - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: retreatRecalculationPeriod
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Radius
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_BaseOffset
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_AngularSpeed
