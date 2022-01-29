@@ -127,7 +127,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &3579033691522261177
 GameObject:
@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 332463388669940520}
   laserSpawn: {fileID: 1626467532118365894}
+  testObject: {fileID: 0}
 --- !u!114 &3579033693316623778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,9 +333,9 @@ MonoBehaviour:
   rotationSpeed: 720
   anim: {fileID: 0}
   IsGreen: 0
-  spriteRenderer: {fileID: 0}
-  greenturret: {fileID: 0}
-  redturret: {fileID: 0}
+  spriteRenderer: {fileID: 3579033691522261179}
+  greenturret: {fileID: 5651978440371858376, guid: fc62995ff8c62ba43a5600b46cfedb96, type: 3}
+  redturret: {fileID: 282683538552636376, guid: fc62995ff8c62ba43a5600b46cfedb96, type: 3}
 --- !u!50 &3579033693316623780
 Rigidbody2D:
   serializedVersion: 4

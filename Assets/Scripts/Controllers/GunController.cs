@@ -10,7 +10,6 @@ public class GunController : MonoBehaviour
 
 	public LineRenderer lineRenderer;
 	public Transform laserSpawn;
-
 	private float canFire = 1f;
 	private Vector3 mousePos;
 	GunData gunData = new GunData();
@@ -62,7 +61,14 @@ public class GunController : MonoBehaviour
 		if (gunData.type == GunTypeEnum.Mater)
 		{
 			findGunData(GunTypeEnum.Antimater);
-		} else findGunData(GunTypeEnum.Mater);
+			pl.IsGreen = false;
+		}
+		else
+		{
+			findGunData(GunTypeEnum.Mater);
+			pl.IsGreen = true;
+		}
+		
 		canFire = 0;   ///reset gun shooting
 		return true;
 	}
@@ -124,12 +130,13 @@ public class GunController : MonoBehaviour
 
 	void doEmptyShot()
 	{
-		Vector3 playerDirection = pl.rbTurret.up;
+		Vector3 playerDirection = (pl.rbTurret.up);
 
 		Vector3 spawnPos =  playerDirection * 150f;
 		//Vector3 offset = pl.rbTurret.rotation * laserSpawn.localPosition;
-		Debug.Log(pl.rbTurret.localPosition.ToString("f5"));
-		lineRenderer.SetPosition(0, pl.transform.TransformPoint(pl.rbTurret.localPosition));
+		
+		lineRenderer.SetPosition(0, laserSpawn.position);
 		lineRenderer.SetPosition(1, spawnPos);
+		lineRenderer.transform.position = laserSpawn.position;
 	}
 }
