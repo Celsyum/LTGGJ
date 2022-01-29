@@ -230,7 +230,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8125, y: 1.0625}
+    oldSize: {x: 1.9333333, y: 1.1333333}
     newSize: {x: 1.8125, y: 1.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -330,6 +330,11 @@ MonoBehaviour:
   cam: {fileID: 0}
   runSpeed: 10
   rotationSpeed: 720
+  anim: {fileID: 0}
+  IsGreen: 0
+  spriteRenderer: {fileID: 0}
+  greenturret: {fileID: 0}
+  redturret: {fileID: 0}
 --- !u!50 &3579033693316623780
 Rigidbody2D:
   serializedVersion: 4
