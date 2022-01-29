@@ -21,15 +21,22 @@ public class PlayerController : MonoBehaviour
 	public float runSpeed = 20.0f;
 	public float rotationSpeed = 720f;
 
-    // Start is called before the first frame update
-    void Start()
+	public Animator anim;
+	public bool IsGreen;
+	public SpriteRenderer spriteRenderer;
+	public Sprite greenturret;
+	public Sprite redturret;
+
+	// Start is called before the first frame update
+	void Start()
     {
 		stats = Game.GetModel<GameStats>();
 		rb = GetComponent<Rigidbody2D>();
 		gun = GetComponent<GunController>();
 		this.gameObject.AddComponent<AudioSource>();
 		this.GetComponent<AudioSource>().clip = clip;
-    }
+		IsGreen = true;
+	}
 
     // Update is called once per frame
     void Update()
@@ -44,16 +51,37 @@ public class PlayerController : MonoBehaviour
         }     
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
+			IsGreen = !IsGreen;
 			SwapGuns();
 		}
-    }
+		if (rb.velocity != new Vector2(0, 0))
+		{
+			anim.SetBool("IsDriving", true);
+		}
+		else
+		{
+			anim.SetBool("IsDriving", false);
+		}
+
+		if(IsGreen == true)
+        {
+			spriteRenderer.sprite = greenturret;
+		}
+		else
+        {
+			spriteRenderer.sprite = redturret;
+		}
+	}
 
     void FixedUpdate()
     {
+		movement.Normalize();
 		rb.velocity = new Vector2(movement.x * runSpeed, movement.y * runSpeed);
 		rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
 
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
+		
+
+		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
 
 		rbTurret.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
@@ -68,7 +96,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (gun.swap())
 		{
-			Debug.Log("gun swapped");
+			//Debug.Log("gun swapped");
 		}
 	}
 

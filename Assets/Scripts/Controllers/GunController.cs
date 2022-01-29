@@ -9,6 +9,7 @@ public class GunController : MonoBehaviour
 	GameStats stats;
 
 	public LineRenderer lineRenderer;
+	public Transform laserSpawn;
 
 	private float canFire = 1f;
 	private Vector3 mousePos;
@@ -126,7 +127,9 @@ public class GunController : MonoBehaviour
 		Vector3 playerDirection = pl.rbTurret.up;
 
 		Vector3 spawnPos =  playerDirection * 150f;
-		lineRenderer.SetPosition(0, Vector3.zero);
+		//Vector3 offset = pl.rbTurret.rotation * laserSpawn.localPosition;
+		Debug.Log(pl.rbTurret.localPosition.ToString("f5"));
+		lineRenderer.SetPosition(0, pl.transform.TransformPoint(pl.rbTurret.localPosition));
 		lineRenderer.SetPosition(1, spawnPos);
 	}
 }
