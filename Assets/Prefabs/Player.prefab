@@ -327,6 +327,7 @@ MonoBehaviour:
   rbHull: {fileID: 3579033691522261176}
   cam: {fileID: 0}
   runSpeed: 10
+  rotationSpeed: 720
 --- !u!50 &3579033693316623780
 Rigidbody2D:
   serializedVersion: 4
@@ -374,7 +375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3742760684601780595}
   m_LocalRotation: {x: -0, y: -0, z: -0.004385368, w: 0.9999904}
-  m_LocalPosition: {x: 0.00048806722, y: 0, z: 0}
+  m_LocalPosition: {x: -0.001, y: -0.128, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3579033693316623779}
