@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     //public AudioSource audiosource;
     public AudioClip clip;
     public float volume=0.5f;
-    public Rigidbody2D rbTurret;
-    public Rigidbody2D rbHull;
+    public Transform rbTurret;
+    public Transform rbHull;
+	Rigidbody2D rb;
     public Camera cam;
 
     float horizontal;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 		stats = Game.GetModel<GameStats>();
+		rb = GetComponent<Rigidbody2D>();
 		gun = GetComponent<GunController>();
 		this.gameObject.AddComponent<AudioSource>();
 		this.GetComponent<AudioSource>().clip = clip;
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        mousePos = Input.mousePosition - cam.WorldToScreenPoint(rbTurret.position);
+        mousePos = Input.mousePosition - cam.WorldToScreenPoint(rbTurret.parent.position);
 		
 		if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -52,13 +54,17 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rbHull.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
-        rbHull.MovePosition(rbHull.position + movement * runSpeed * Time.fixedDeltaTime);
+		Debug.Log(horizontal);
+		Debug.Log(vertical);
+		Debug.Log(runSpeed);
+		rb.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+		rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
-        rbTurret.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        
-    }
+		rbHull.transform.rotation  = rbTurret.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		
+
+	}
 
 	void SwapGuns()
 	{
