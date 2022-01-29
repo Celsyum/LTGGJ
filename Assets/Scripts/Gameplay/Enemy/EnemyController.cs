@@ -76,7 +76,9 @@ public class EnemyController : StateMashine
 
     public void Die()
     {
-        Destroy(gameObject);
+        EnemyAnimator.SetBool("isDead", true);
+        currentState = null;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public bool IsTargerVisible()
@@ -104,5 +106,10 @@ public class EnemyController : StateMashine
     public bool IsTargetTooClose()
     {
         return MinimalDistanceToTarget > GetDistanceToTarget();
+    }
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 }

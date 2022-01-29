@@ -12,6 +12,6 @@ public abstract class StateMashine : MonoBehaviour
 
     protected virtual void Update()
     {
-        currentState.Update();
+        currentState?.Update();
     }
 }

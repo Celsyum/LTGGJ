@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c7d1b157f21764a83fa69cd899ec3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackArea: {fileID: 0}
+  attackArea: {fileID: 1798457066}
 --- !u!58 &1798457066
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -58,9 +58,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 0.5
 --- !u!1001 &8657787003197045408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,6 +68,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548315327545444637, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Size.x
+      value: 0.71875
+      objectReference: {fileID: 0}
     - target: {fileID: 4548315327545444637, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 1.4375
@@ -78,11 +82,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548315327545444637, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.4375
+      value: 0.71875
       objectReference: {fileID: 0}
     - target: {fileID: 4548315327545444637, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_RootOrder
@@ -138,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 1798457065}
     - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: attackDistance
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: minimalDistanceToTarget
@@ -212,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5651978440371858376, guid: 98b84a1dd0c19654197099caf29d3588, type: 3}
+  m_Sprite: {fileID: 6110531031170182550, guid: c4fe92ef3c4c57d41b333b0cd47c4e79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
