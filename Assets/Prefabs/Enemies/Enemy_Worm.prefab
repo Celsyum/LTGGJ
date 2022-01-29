@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1674750014}
   - component: {fileID: 1674750015}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RangedAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7927636841745839139, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_Name
-      value: Enemy_Worm (1)
+      value: Enemy_Worm
       objectReference: {fileID: 0}
     - target: {fileID: 7927636841745839139, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_Layer

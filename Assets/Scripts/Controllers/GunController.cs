@@ -93,7 +93,7 @@ public class GunController : MonoBehaviour
 	IEnumerator raycastShooting()
 	{
 		//RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, checkLayers);
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, 500f, checkLayers);
+		RaycastHit2D hit = Physics2D.Raycast(pl.transform.position, pl.rbTurret.up, 150f, checkLayers);
 
 		if (hit.collider != null)
 		{
@@ -107,10 +107,14 @@ public class GunController : MonoBehaviour
 			if (layer == 7 || layer == 8)
 			{
 				EnemyController en = hit.transform.GetComponent<EnemyController>();
-				en.Damage(gunData.damage);
-				Debug.Log("shot1");
-				lineRenderer.SetPosition(0, pl.transform.position);
-				lineRenderer.SetPosition(1, hit.point);
+				if (en != null)
+				{
+					en.Damage(gunData.damage);
+
+					lineRenderer.SetPosition(0, laserSpawn.position);
+					lineRenderer.SetPosition(1, hit.point);
+				}
+				else Debug.Log("no enemy controller, wrong layer");
 			}
 			else
 			{
@@ -140,6 +144,6 @@ public class GunController : MonoBehaviour
 		
 		lineRenderer.SetPosition(0, laserSpawn.position);
 		lineRenderer.SetPosition(1, spawnPos);
-		lineRenderer.transform.position = laserSpawn.position;
+		//lineRenderer.transform.position = laserSpawn.position;
 	}
 }
