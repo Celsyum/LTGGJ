@@ -70,7 +70,7 @@ public class GunController : MonoBehaviour
 		switch (gunData.type)
 		{
 			case GunTypeEnum.Mater:
-				projectileShooting();
+				raycastShooting();
 				break;
 			case GunTypeEnum.Antimater:
 				raycastShooting(); 
@@ -79,11 +79,6 @@ public class GunController : MonoBehaviour
 				break;
 		}
 		
-	}
-
-	void projectileShooting()
-	{
-		Debug.Log("shoot projectile");
 	}
 
 	void raycastShooting()
