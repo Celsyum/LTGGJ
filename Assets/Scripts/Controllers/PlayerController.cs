@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour
     public AudioClip clip;
     public float volume=0.5f;
     Rigidbody2D rb;
+    public Camera cam;
 
     float horizontal;
     float vertical;
+    Vector2 movement;
+    Vector2 mousePos;
 
 public float runSpeed = 20.0f;
     // Start is called before the first frame update
@@ -26,6 +29,9 @@ public float runSpeed = 20.0f;
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
@@ -35,11 +41,20 @@ public float runSpeed = 20.0f;
     void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
+        Vector2 lookDir = mousePos + rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
+        
     }
 
     void Shoot () 
     {        
-        this.GetComponent<AudioSource>().Play();
+        //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 playerPosition = this.transform.position;
+        //making the laser
+        //Debug.DrawLine(playerPosition, mousePosition, Color.red, 1/60f);
+        Physics2D.Raycast(transform.position, this.transform.forward, 500);        this.GetComponent<AudioSource>().Play();
     }
     
 }
