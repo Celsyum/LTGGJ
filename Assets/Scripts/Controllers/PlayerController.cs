@@ -22,17 +22,21 @@ public class PlayerController : MonoBehaviour
 	public float rotationSpeed = 720f;
 
 	public Animator anim;
-	bool IsDriving;
+	public bool IsGreen;
+	public SpriteRenderer spriteRenderer;
+	public Sprite greenturret;
+	public Sprite redturret;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
 		stats = Game.GetModel<GameStats>();
 		rb = GetComponent<Rigidbody2D>();
 		gun = GetComponent<GunController>();
 		this.gameObject.AddComponent<AudioSource>();
 		this.GetComponent<AudioSource>().clip = clip;
-    }
+		IsGreen = true;
+	}
 
     // Update is called once per frame
     void Update()
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour
         }     
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
+			IsGreen = !IsGreen;
 			SwapGuns();
 		}
 		if (rb.velocity != new Vector2(0, 0))
@@ -56,6 +61,15 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			anim.SetBool("IsDriving", false);
+		}
+
+		if(IsGreen == true)
+        {
+			spriteRenderer.sprite = greenturret;
+		}
+		else
+        {
+			spriteRenderer.sprite = redturret;
 		}
 	}
 
@@ -81,7 +95,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (gun.swap())
 		{
-			Debug.Log("gun swapped");
+			//Debug.Log("gun swapped");
 		}
 	}
 
