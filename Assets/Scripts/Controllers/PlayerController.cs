@@ -1,3 +1,4 @@
+using GGJ.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,14 +15,16 @@ public class PlayerController : MonoBehaviour
     float vertical;
     Vector2 movement;
     Vector2 mousePos;
+	GameStats stats;
 
 public float runSpeed = 20.0f;
     // Start is called before the first frame update
     void Start()
     {
-       rb = GetComponent<Rigidbody2D>();
-       this.gameObject.AddComponent<AudioSource>();
-       this.GetComponent<AudioSource>().clip = clip;
+		stats = Game.GetModel<GameStats>();
+		rb = GetComponent<Rigidbody2D>();
+		this.gameObject.AddComponent<AudioSource>();
+		this.GetComponent<AudioSource>().clip = clip;
     }
 
     // Update is called once per frame
@@ -54,7 +57,9 @@ public float runSpeed = 20.0f;
         //Vector2 playerPosition = this.transform.position;
         //making the laser
         //Debug.DrawLine(playerPosition, mousePosition, Color.red, 1/60f);
-        Physics2D.Raycast(transform.position, this.transform.forward, 500);        this.GetComponent<AudioSource>().Play();
+        Physics2D.Raycast(transform.position, this.transform.forward, 500);
+		stats.BulletShots++;
+        this.GetComponent<AudioSource>().Play();
     }
     
 }

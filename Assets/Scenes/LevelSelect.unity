@@ -462,6 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190896375}
   - component: {fileID: 1190896376}
+  - component: {fileID: 1190896377}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -495,6 +496,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d7be85263fa5c4b8835e9b885aa900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1190896377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190896374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71eef6d60a509e7449729e45234a8db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1707098971
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +520,7 @@ GameObject:
   - component: {fileID: 1707098972}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,9 +537,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83073f20bed9fd429ce45a06b036a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats:
-    WalkSpeed: 0
   player: {fileID: 0}
+  _stats:
+    WalkSpeed: 25
 --- !u!4 &1707098973
 Transform:
   m_ObjectHideFlags: 0
@@ -554,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1428374445827675636, guid: 7b81549f3d834de44b5c88711a19ac11, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2242154954995746034, guid: 7b81549f3d834de44b5c88711a19ac11, type: 3}
       propertyPath: m_Enabled

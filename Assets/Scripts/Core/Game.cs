@@ -3,19 +3,9 @@ namespace GGJ.Core
 
 	public static partial class Game
 	{
-		static public T GetModel<T>() where T : class, new()
+		static public GameStats GetModel<T>()
 		{
-			return InstanceRegister<T>.instance;
-		}
-
-		static public void SetModel<T>(T instance) where T : class, new()
-		{
-			InstanceRegister<T>.instance = instance;
-		}
-
-		static public void DestroyModel<T>() where T : class, new()
-		{
-			InstanceRegister<T>.instance = null;
+			return GameManager.Instance.stats;
 		}
 	}
 
