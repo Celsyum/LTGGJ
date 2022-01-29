@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMeleeAtackAction : EnemyAttackAction
+public class EnemyMeleeAttackAction : EnemyAttackAction
 {
     [SerializeField] private CircleCollider2D attackArea;
     private PlayerController attackablePlayer;

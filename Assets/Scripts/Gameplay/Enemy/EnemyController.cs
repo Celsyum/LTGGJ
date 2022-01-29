@@ -51,14 +51,18 @@ public class EnemyController : StateMashine
 
     public bool IsTargerVisible(float distance)
     {
-        Vector3 rayDirection = Target.position - transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, distance, visionCollisionLayers);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, GetTargetDirection(), distance, visionCollisionLayers);
 
         return hit.transform == Target;
     }
 
-    public float DistanceToTarget()
+    public float GetDistanceToTarget()
     {
         return Vector2.Distance(transform.position, Target.position);
+    }
+
+    public Vector2 GetTargetDirection()
+    {
+        return Target.position - transform.position;
     }
 }
