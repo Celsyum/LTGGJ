@@ -9,10 +9,12 @@ public class EnemyController : StateMashine
 
     public float Health { get; set; }
     public float Speed { get => Agent.speed; set => Agent.speed = value; }
-    public float AttackDistance { get; set; } = 1;
+    public float AttackDistance { get; set; } = 10;
     public float AttackDamage { get => attackAction.AttackDamage; set => attackAction.AttackDamage = value; }
     public float AttackSpeed { get => attackAction.AttackSpeed; set => attackAction.AttackSpeed = value; }
+    public float MinimalDistanceToTarget { get; set; } = 5;
     public EnemyAttackAction AttackAction { get => attackAction; }
+    public float RetreatRecalculationPeriod { get; set; } = 1;
 
     public Transform Target { get; private set; }
     [SerializeField] private LayerMask visionCollisionLayers;
@@ -64,5 +66,10 @@ public class EnemyController : StateMashine
     public Vector2 GetTargetDirection()
     {
         return Target.position - transform.position;
+    }
+
+    public bool IsTargetTooClose()
+    {
+        return MinimalDistanceToTarget > GetDistanceToTarget();
     }
 }
