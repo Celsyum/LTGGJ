@@ -5,37 +5,38 @@ using UnityEngine.AI;
 
 public class EnemyController : StateMashine
 {
-    [Header("Attributes")]
-    [SerializeField] private float health;
+    public float Health { get; set; }
+    public float Speed { get => Agent.speed; set => Agent.speed = value; }
+    public float AttackDistance { get; set; } = 1;
+    public float AttackDamage { get; set; }
 
     public Transform Target { get; private set; }
     [SerializeField] private LayerMask visionCollisionLayers;
 
-    private NavMeshAgent agent;
+    public NavMeshAgent Agent { get; private set; }
 
     private void Start()
     {
         Target = GameManager.Instance.Player.transform;
+        Agent = GetComponent<NavMeshAgent>();
+        Agent.updateRotation = false;
+        Agent.updateUpAxis = false;
 
-        SetState(new EnemySpawn(this));
-
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+        SetState(new EnemyFollow(this));
     }
 
-    protected override void Update()
-    {
-        base.Update();
+    //protected override void Update()
+    //{
+    //    base.Update();
 
-        agent.SetDestination(Target.position);
-    }
+        
+    //}
 
     public void Damage(float damage)
     {
-        health -= damage;
+        Health -= damage;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
             Die();
         } 
@@ -48,9 +49,7 @@ public class EnemyController : StateMashine
 
     public bool IsTargerVisible()
     {
-        float rayDistance = Vector2.Distance(transform.position, Target.position);
-
-        return IsTargerVisible(rayDistance);
+        return IsTargerVisible(AttackDistance);
     }
 
     public bool IsTargerVisible(float distance)
@@ -59,5 +58,10 @@ public class EnemyController : StateMashine
         RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, distance, visionCollisionLayers);
 
         return hit.transform == Target;
+    }
+
+    public float DistanceToTarget()
+    {
+        return Vector2.Distance(transform.position, Target.position);
     }
 }
