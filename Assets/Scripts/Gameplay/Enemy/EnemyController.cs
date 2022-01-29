@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : StateMashine
 {
@@ -10,16 +11,24 @@ public class EnemyController : StateMashine
     public Transform Target { get; private set; }
     [SerializeField] private LayerMask visionCollisionLayers;
 
+    private NavMeshAgent agent;
+
     private void Start()
     {
         Target = GameManager.Instance.Player.transform;
 
         SetState(new EnemySpawn(this));
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     protected override void Update()
     {
         base.Update();
+
+        agent.SetDestination(Target.position);
     }
 
     public void Damage(float damage)
