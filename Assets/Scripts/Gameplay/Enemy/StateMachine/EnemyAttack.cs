@@ -10,5 +10,9 @@
         {
             controller.SetState(new EnemyFollow(controller));
         }
+        else
+        {
+            controller.AttackAction.PerformAction();
+        }
     }
 }

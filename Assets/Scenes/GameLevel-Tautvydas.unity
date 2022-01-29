@@ -237,6 +237,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7927636841745839139, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
   m_PrefabInstance: {fileID: 3263806312461303131}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1255727227 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+  m_PrefabInstance: {fileID: 3263806312461303131}
+  m_PrefabAsset: {fileID: 0}
 --- !u!195 &1255727228
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -290,7 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1021646865}
   _stats:
-    WalkSpeed: 0
+    PlayersKilled: 0
+    WalkedDistance: 0
+    BulletShots: 0
 --- !u!4 &1366811316
 Transform:
   m_ObjectHideFlags: 0
@@ -305,6 +312,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1798457063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1798457064}
+  - component: {fileID: 1798457065}
+  m_Layer: 7
+  m_Name: MeleeAtack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1798457064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798457063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1255727227}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1798457065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798457063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c7d1b157f21764a83fa69cd899ec3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1830513775
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +574,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3207547
       objectReference: {fileID: 0}
+    - target: {fileID: 7520662068194757433, guid: aa6847fe201865040942b608eb866153, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1830513777}
     - target: {fileID: 7556465647561743034, guid: aa6847fe201865040942b608eb866153, type: 3}
       propertyPath: m_Name
       value: Player
@@ -899,6 +953,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: attackAction
+      value: 
+      objectReference: {fileID: 1798457065}
     - target: {fileID: 7027770789470159360, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_Layer
       value: 7

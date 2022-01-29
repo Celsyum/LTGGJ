@@ -5,10 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyController : StateMashine
 {
+    [SerializeField] private EnemyAttackAction attackAction;
+
     public float Health { get; set; }
     public float Speed { get => Agent.speed; set => Agent.speed = value; }
     public float AttackDistance { get; set; } = 1;
-    public float AttackDamage { get; set; }
+    public float AttackDamage { get => attackAction.AttackDamage; set => attackAction.AttackDamage = value; }
+    public float AttackSpeed { get => attackAction.AttackSpeed; set => attackAction.AttackSpeed = value; }
+    public EnemyAttackAction AttackAction { get => attackAction; }
 
     public Transform Target { get; private set; }
     [SerializeField] private LayerMask visionCollisionLayers;
@@ -24,13 +28,6 @@ public class EnemyController : StateMashine
 
         SetState(new EnemyFollow(this));
     }
-
-    //protected override void Update()
-    //{
-    //    base.Update();
-
-        
-    //}
 
     public void Damage(float damage)
     {
