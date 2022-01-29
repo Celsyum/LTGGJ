@@ -115,7 +115,7 @@ public class GunController : MonoBehaviour
 
 		lineRenderer.enabled = true;
 
-		yield return 0;
+		yield return new WaitForSeconds(.1f);
 
 		lineRenderer.enabled = false;
 
