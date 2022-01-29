@@ -9,6 +9,7 @@ public class EnemyMeleeAttackAction : EnemyAttackAction
     {
         if (attackablePlayer != null)
         {
+            transform.parent.gameObject.GetComponent<EnemyController>().EnemyAnimator.SetTrigger("attack");
             attackablePlayer.ReceiveDamage(AttackDamage);
         }
     }

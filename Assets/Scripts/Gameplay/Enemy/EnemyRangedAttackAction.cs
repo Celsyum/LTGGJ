@@ -10,8 +10,9 @@ public class EnemyRangedAttackAction : EnemyAttackAction
     {
         GameObject projectileInstance = Instantiate(projectilePrefab, shootingPoint.position, Quaternion.identity);
 
+        EnemyController controller = transform.parent.gameObject.GetComponent<EnemyController>();
         Projectile projectile = projectileInstance.GetComponent<Projectile>();
-        Vector2 projectileDirection = transform.parent.gameObject.GetComponent<EnemyController>().GetTargetDirection();
-        projectile.SpawnProjectile(projectileDirection, AttackDamage, canCollideWith);
+        Vector2 projectileDirection = controller.GetTargetDirection();
+        projectile.SpawnProjectile(projectileDirection, AttackDamage, controller.ProjectileSpeed, canCollideWith);
     }
 }
