@@ -43,6 +43,10 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }     
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			SwapGuns();
+		}
     }
 
     void FixedUpdate()
@@ -55,7 +59,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void Shoot () 
+	void SwapGuns()
+	{
+		if (gun.swap())
+		{
+			Debug.Log("gun swapped");
+		}
+	}
+
+
+	void Shoot () 
     {        
         //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Vector2 playerPosition = this.transform.position;

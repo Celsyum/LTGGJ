@@ -12,13 +12,21 @@ public class GunController : MonoBehaviour
 	 * */
 	public float fireRate = 0.1f;
 
+	public float gun1Damage = 0.5f;
+	public float gun2Damage = 0.5f;
 
+	private float currentDamage = 0f;
 	private float canFire = 1f;
+
+	public GameStateEnum gunStatus;
+
     // Start is called before the first frame update
     void Start()
     {
 		pl = GetComponent<PlayerController>();
 		canFire = fireRate;
+		currentDamage = gun1Damage;
+		gunStatus = GameStateEnum.Mater;
 	}
 
     // Update is called once per frame
@@ -39,6 +47,15 @@ public class GunController : MonoBehaviour
 		return false;
 	}
 
+	public bool swap()
+	{
+		if (gunStatus == GameStateEnum.Antimater)
+		{
+
+		}
+		return true;
+	}
+
 	void doShooting()
 	{
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, 500);
@@ -51,7 +68,8 @@ public class GunController : MonoBehaviour
 			int layer = hit.collider.gameObject.layer;
 			if (layer == 7 || layer == 8)
 			{
-				EnemyController en = hit.collider.GetComponent<EnemyController>();
+				EnemyController en = hit.transform.GetComponent<EnemyController>();
+				//en.Damage()
 			}
 			
 		}
