@@ -8,6 +8,7 @@ public class EnemyController : StateMashine
     [SerializeField] private float health;
 
     public Transform Target { get; private set; }
+    [SerializeField] private LayerMask visionCollisionLayers;
 
     private void Start()
     {
@@ -38,10 +39,16 @@ public class EnemyController : StateMashine
 
     public bool IsTargerVisible()
     {
-        RaycastHit2D hit;
+        float rayDistance = Vector2.Distance(transform.position, Target.position);
+
+        return IsTargerVisible(rayDistance);
+    }
+
+    public bool IsTargerVisible(float distance)
+    {
         Vector3 rayDirection = Target.position - transform.position;
-        hit = Physics2D.Raycast(transform.position, rayDirection);
-        Debug.Log(hit.transform.name);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, distance, visionCollisionLayers);
+
         return hit.transform == Target;
     }
 }

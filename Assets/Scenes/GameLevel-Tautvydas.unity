@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83073f20bed9fd429ce45a06b036a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats:
+    WalkSpeed: 0
   player: {fileID: 407331737}
 --- !u!4 &1366811316
 Transform:
@@ -667,17 +669,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3077913666422588832, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: targetLayers.m_Bits
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077913666422588832, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: visionCollisionLayers.m_Bits
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548315327545444637, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.47
+      value: 3.88
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 5694594571618292895, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_LocalPosition.z
@@ -711,9 +725,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7027770789470159360, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7927636841745839139, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927636841745839139, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
@@ -821,6 +843,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2817751661436798610, guid: aa6847fe201865040942b608eb866153, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2817751661436798610, guid: aa6847fe201865040942b608eb866153, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3852802226197702390, guid: aa6847fe201865040942b608eb866153, type: 3}
       propertyPath: m_RootOrder
       value: 3
