@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 	public float runSpeed = 20.0f;
 	public float rotationSpeed = 720f;
 
+	public Animator anim;
+	bool IsDriving;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,14 +49,24 @@ public class PlayerController : MonoBehaviour
 		{
 			SwapGuns();
 		}
-    }
+		if (rb.velocity != new Vector2(0, 0))
+		{
+			anim.SetBool("IsDriving", true);
+		}
+		else
+		{
+			anim.SetBool("IsDriving", false);
+		}
+	}
 
     void FixedUpdate()
     {
 		rb.velocity = new Vector2(movement.x * runSpeed, movement.y * runSpeed);
 		rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
 
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
+		
+
+		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
 
 		rbTurret.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
