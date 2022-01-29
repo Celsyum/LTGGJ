@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class EnemyAttack : State
+﻿public class EnemyAttack : State
 {
     public EnemyAttack(EnemyController controller) : base(controller)
     {

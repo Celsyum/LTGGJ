@@ -1,24 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : StateMashine
 {
+    [Header("References")]
     [SerializeField] private EnemyAttackAction attackAction;
 
-    public float Health { get; set; }
-    public float Speed { get => Agent.speed; set => Agent.speed = value; }
-    public float AttackDistance { get; set; } = 10;
-    public float AttackDamage { get => attackAction.AttackDamage; set => attackAction.AttackDamage = value; }
-    public float AttackSpeed { get => attackAction.AttackSpeed; set => attackAction.AttackSpeed = value; }
-    public float MinimalDistanceToTarget { get; set; } = 5;
-    public EnemyAttackAction AttackAction { get => attackAction; }
-    public float RetreatRecalculationPeriod { get; set; } = 1;
-
-    public Transform Target { get; private set; }
+    [Header("Parameters")]
+    [SerializeField] private float health;
+    [SerializeField] private float speed;
+    [SerializeField] private float attackDistance;
+    [SerializeField] private float attackDamage;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float minimalDistanceToTarget;
+    [SerializeField] private float retreatRecalculationPeriod;
     [SerializeField] private LayerMask visionCollisionLayers;
 
+    public float Health { get => health; set => health = value; }
+    public float Speed { get => Agent.speed; set => Agent.speed = value; }
+    public float AttackDistance { get => attackDistance; set => attackDistance = value; }
+    public float AttackDamage { get => attackAction.AttackDamage; set => attackAction.AttackDamage = value; }
+    public float AttackSpeed { get => attackAction.AttackSpeed; set => attackAction.AttackSpeed = value; }
+    public float MinimalDistanceToTarget { get => minimalDistanceToTarget; set => minimalDistanceToTarget = value; }
+    public EnemyAttackAction AttackAction { get => attackAction; }
+    public float RetreatRecalculationPeriod { get => retreatRecalculationPeriod; set => retreatRecalculationPeriod = value; }
+    public Transform Target { get; private set; }
     public NavMeshAgent Agent { get; private set; }
 
     private void Start()
@@ -27,6 +33,10 @@ public class EnemyController : StateMashine
         Agent = GetComponent<NavMeshAgent>();
         Agent.updateRotation = false;
         Agent.updateUpAxis = false;
+
+        Agent.speed = speed;
+        AttackDamage = attackDamage;
+        AttackSpeed = attackSpeed;
 
         SetState(new EnemyFollow(this));
     }
