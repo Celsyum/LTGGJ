@@ -76,10 +76,8 @@ public class PlayerController : MonoBehaviour
         //making the laser
         //Debug.DrawLine(playerPosition, mousePosition, Color.red, 1/60f);
         
-		if (gun.shoot())
-		{
-			Debug.Log("shot");
-			
+		if (gun.shoot(mousePos))
+		{			
 			stats.BulletShots++;
 			this.GetComponent<AudioSource>().Play();
 		}

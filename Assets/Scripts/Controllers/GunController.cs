@@ -11,7 +11,7 @@ public class GunController : MonoBehaviour
 	public LineRenderer lineRenderer;
 
 	private float canFire = 1f;
-
+	private Vector3 mousePos;
 	GunData gunData = new GunData();
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class GunController : MonoBehaviour
 		stats = Game.GetModel<GameStats>();
 		//gunStatus = GameStateEnum.Mater;
 		findGunData(gunData.type);
-		canFire = gunData.fireRate;
+		canFire = 0;
 	}
 
 	void findGunData(GunTypeEnum type)
@@ -43,9 +43,10 @@ public class GunController : MonoBehaviour
         
     }
 
-	public bool shoot()
+	public bool shoot(Vector2 mousepos)
 	{
-		if (canFire < 0)
+		mousePos = mousepos;
+		if (canFire <= 0)
 		{
 			canFire = gunData.fireRate;
 			doShooting();
@@ -70,10 +71,10 @@ public class GunController : MonoBehaviour
 		switch (gunData.type)
 		{
 			case GunTypeEnum.Mater:
-				raycastShooting();
+				StartCoroutine(raycastShooting());
 				break;
 			case GunTypeEnum.Antimater:
-				raycastShooting(); 
+				StartCoroutine(raycastShooting());
 				break;
 			default:
 				break;
@@ -81,12 +82,13 @@ public class GunController : MonoBehaviour
 		
 	}
 
-	void raycastShooting()
+	IEnumerator raycastShooting()
 	{
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, this.transform.forward, 500);
+		
 		if (hit.collider != null)
 		{
-			Debug.Log("shot1");
+
 			// Calculate the distance from the surface and the "error" relative
 			// to the floating height.
 			//float distance = Mathf.Abs(hit.point.y - transform.position.y);
@@ -95,23 +97,42 @@ public class GunController : MonoBehaviour
 			if (layer == 7 || layer == 8)
 			{
 				EnemyController en = hit.transform.GetComponent<EnemyController>();
-				//en.Damage()
-
+				en.Damage(gunData.damage);
+				Debug.Log("shot1");
 				lineRenderer.SetPosition(0, pl.transform.position);
 				lineRenderer.SetPosition(1, hit.point);
 			}
+			else
+			{
+				doEmptyShot();
+			}
 
-		} else
-		{
-			Debug.Log("shot2");
-			Vector3 playerDirection = pl.transform.forward;
-			Quaternion playerRotation = pl.transform.rotation;
-			float spawnDistance = 300;
-
-			Vector3 spawnPos = pl.transform.position + playerDirection * spawnDistance;
-
-			lineRenderer.SetPosition(0, pl.transform.position);
-			lineRenderer.SetPosition(1, spawnPos);
 		}
+		else
+		{
+			doEmptyShot();
+		}
+
+		lineRenderer.enabled = true;
+
+		yield return 0;
+
+		lineRenderer.enabled = false;
+
+	}
+
+	void doEmptyShot()
+	{
+		Vector3 playerDirection = pl.transform.up;
+		
+
+		Vector3 diretion = pl.transform.position - mousePos;
+
+		Quaternion playerRotation = pl.transform.rotation;
+
+
+		Vector3 spawnPos = pl.transform.position + playerDirection * 50f;
+		lineRenderer.SetPosition(0, pl.transform.position);
+		lineRenderer.SetPosition(1, spawnPos);
 	}
 }
