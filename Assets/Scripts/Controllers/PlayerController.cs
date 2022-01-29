@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;
     Vector2 mousePos;
 	GameStats stats;
+	GunController gun;
 
 public float runSpeed = 20.0f;
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public float runSpeed = 20.0f;
     {
 		stats = Game.GetModel<GameStats>();
 		rb = GetComponent<Rigidbody2D>();
+		gun = GetComponent<GunController>();
 		this.gameObject.AddComponent<AudioSource>();
 		this.GetComponent<AudioSource>().clip = clip;
     }
@@ -57,9 +59,14 @@ public float runSpeed = 20.0f;
         //Vector2 playerPosition = this.transform.position;
         //making the laser
         //Debug.DrawLine(playerPosition, mousePosition, Color.red, 1/60f);
-        Physics2D.Raycast(transform.position, this.transform.forward, 500);
-		stats.BulletShots++;
-        this.GetComponent<AudioSource>().Play();
+        
+		if (gun.shoot())
+		{
+			Debug.Log("shot");
+			Physics2D.Raycast(transform.position, this.transform.forward, 500);
+			stats.BulletShots++;
+			this.GetComponent<AudioSource>().Play();
+		}
     }
     
 }
