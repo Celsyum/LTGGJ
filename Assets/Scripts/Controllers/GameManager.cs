@@ -1,8 +1,11 @@
 using UnityEngine;
+using GGJ.Core;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+	public GameStats stats = Game.GetModel<GameStats>();
+
+	private static GameManager instance;
 
     public static GameManager Instance
     {

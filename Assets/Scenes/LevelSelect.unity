@@ -521,11 +521,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1707098971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a32e5b5a0f5a44bb70b29cc07a8ec4, type: 3}
+  m_Script: {fileID: 11500000, guid: d83073f20bed9fd429ce45a06b036a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model:
-    WalkSpeed: 20
+  stats:
+    WalkSpeed: 0
+  player: {fileID: 0}
 --- !u!4 &1707098973
 Transform:
   m_ObjectHideFlags: 0
