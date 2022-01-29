@@ -14,6 +14,7 @@ public class EnemyController : StateMashine
     [SerializeField] private float attackSpeed;
     [SerializeField] private float minimalDistanceToTarget;
     [SerializeField] private float retreatRecalculationPeriod;
+    [SerializeField] private float projectileSpeed;
     [SerializeField] private LayerMask visionCollisionLayers;
     private Vector3 previousLocation;
     private Vector3 rotationTarget;
@@ -24,6 +25,8 @@ public class EnemyController : StateMashine
     public float AttackDamage { get => attackAction.AttackDamage; set => attackAction.AttackDamage = value; }
     public float AttackSpeed { get => attackAction.AttackSpeed; set => attackAction.AttackSpeed = value; }
     public float MinimalDistanceToTarget { get => minimalDistanceToTarget; set => minimalDistanceToTarget = value; }
+
+    public float ProjectileSpeed { get => projectileSpeed; set => projectileSpeed = value; }
     public EnemyAttackAction AttackAction { get => attackAction; }
     public float RetreatRecalculationPeriod { get => retreatRecalculationPeriod; set => retreatRecalculationPeriod = value; }
     public Vector3 RotationTarget { get => rotationTarget; set => rotationTarget = value; }
