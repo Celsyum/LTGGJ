@@ -123,23 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &64062846 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7556465647561743034, guid: aa6847fe201865040942b608eb866153, type: 3}
-  m_PrefabInstance: {fileID: 125764671}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &64062851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64062846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bea524f33f52ab841a73e885e93a93e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &125764671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235,6 +218,15 @@ MonoBehaviour:
     PlayersKilled: 0
     WalkedDistance: 0
     BulletShots: 0
+    guns:
+    - name: materializatorius
+      damage: 20
+      fireRate: 0.3
+      type: 0
+    - name: antimaterializatorius
+      damage: 20
+      fireRate: 0.2
+      type: 1
 --- !u!4 &163951819
 Transform:
   m_ObjectHideFlags: 0

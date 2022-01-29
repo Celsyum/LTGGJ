@@ -539,7 +539,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   _stats:
-    WalkSpeed: 25
+    PlayersKilled: 0
+    WalkedDistance: 0
+    BulletShots: 0
+    guns:
+    - name: materializatorius
+      damage: 20
+      fireRate: 0.3
+      type: 0
+    - name: antimaterializatorius
+      damage: 20
+      fireRate: 0.2
+      type: 1
 --- !u!4 &1707098973
 Transform:
   m_ObjectHideFlags: 0
