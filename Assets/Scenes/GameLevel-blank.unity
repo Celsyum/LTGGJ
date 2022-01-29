@@ -423,7 +423,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   _stats:
-    WalkSpeed: 1
+    PlayersKilled: 0
+    WalkedDistance: 0
+    BulletShots: 0
 --- !u!4 &1259733414
 Transform:
   m_ObjectHideFlags: 0
@@ -773,6 +775,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7520662068194757433, guid: aa6847fe201865040942b608eb866153, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1830513777}
     - target: {fileID: 7556465647561743034, guid: aa6847fe201865040942b608eb866153, type: 3}
       propertyPath: m_Name
       value: Player
