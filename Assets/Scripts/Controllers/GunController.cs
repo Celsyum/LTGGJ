@@ -123,16 +123,10 @@ public class GunController : MonoBehaviour
 
 	void doEmptyShot()
 	{
-		Vector3 playerDirection = pl.transform.up;
-		
+		Vector3 playerDirection = pl.rbTurret.up;
 
-		Vector3 diretion = pl.transform.position - mousePos;
-
-		Quaternion playerRotation = pl.transform.rotation;
-
-
-		Vector3 spawnPos = pl.transform.position + playerDirection * 50f;
-		lineRenderer.SetPosition(0, pl.transform.position);
+		Vector3 spawnPos =  playerDirection * 150f;
+		lineRenderer.SetPosition(0, Vector3.zero);
 		lineRenderer.SetPosition(1, spawnPos);
 	}
 }
