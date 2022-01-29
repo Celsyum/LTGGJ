@@ -18,7 +18,14 @@ public class PlayerController : MonoBehaviour
 	GameStats stats;
 	GunController gun;
 
-public float runSpeed = 20.0f;
+	public float runSpeed = 20.0f;
+	/**
+	 * seconds
+	 * */
+	public float fireRate = 0.1f;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +44,7 @@ public float runSpeed = 20.0f;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             Shoot();
         }     
