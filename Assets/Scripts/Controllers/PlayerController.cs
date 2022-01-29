@@ -38,8 +38,9 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKey(KeyCode.Mouse0))
+        mousePos = Input.mousePosition - cam.WorldToScreenPoint(rb.position);
+		
+		if (Input.GetKey(KeyCode.Mouse0))
         {
             Shoot();
         }     
@@ -53,9 +54,9 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
         rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
-        Vector2 lookDir = mousePos + rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
+        rb.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         
     }
 
