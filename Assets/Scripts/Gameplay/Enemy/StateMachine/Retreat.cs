@@ -33,6 +33,7 @@ public class Retreat : State
             Vector2 retreatPosition = new Vector2((controllerPosition.x - targetPosition.x) + controllerPosition.x, (controllerPosition.y - targetPosition.y) + controllerPosition.y);
 
             controller.Agent.SetDestination(retreatPosition);
+            controller.RotationTarget = retreatPosition;
 
             repeatTimer = 0;
         }

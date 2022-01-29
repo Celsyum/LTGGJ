@@ -15,6 +15,8 @@ public class EnemyController : StateMashine
     [SerializeField] private float minimalDistanceToTarget;
     [SerializeField] private float retreatRecalculationPeriod;
     [SerializeField] private LayerMask visionCollisionLayers;
+    private Vector3 previousLocation;
+    private Vector3 rotationTarget;
 
     public float Health { get => health; set => health = value; }
     public float Speed { get => Agent.speed; set => Agent.speed = value; }
@@ -24,12 +26,15 @@ public class EnemyController : StateMashine
     public float MinimalDistanceToTarget { get => minimalDistanceToTarget; set => minimalDistanceToTarget = value; }
     public EnemyAttackAction AttackAction { get => attackAction; }
     public float RetreatRecalculationPeriod { get => retreatRecalculationPeriod; set => retreatRecalculationPeriod = value; }
+    public Vector3 RotationTarget { get => rotationTarget; set => rotationTarget = value; }
     public Transform Target { get; private set; }
+    public Animator EnemyAnimator { get; private set; }
     public NavMeshAgent Agent { get; private set; }
 
     private void Start()
     {
         Target = GameManager.Instance.Player.transform;
+        EnemyAnimator = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
         Agent.updateRotation = false;
         Agent.updateUpAxis = false;
@@ -39,6 +44,21 @@ public class EnemyController : StateMashine
         AttackSpeed = attackSpeed;
 
         SetState(new EnemyFollow(this));
+
+        previousLocation = transform.position;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        EnemyAnimator.SetFloat("speed", previousLocation != transform.position ? 1 : 0);
+        previousLocation = transform.position;
+
+        Vector3 vectorToTarget = rotationTarget - transform.position;
+        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
     }
 
     public void Damage(float damage)

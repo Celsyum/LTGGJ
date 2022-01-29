@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1021646870}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269553579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -278.35, y: -359, z: -10}
+  m_LocalPosition: {x: -280.33188, y: -359.96002, z: -17.570347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2131751081}
@@ -232,6 +232,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7556465647561743034, guid: aa6847fe201865040942b608eb866153, type: 3}
   m_PrefabInstance: {fileID: 2029599339}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1021646870 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3852802226197702390, guid: aa6847fe201865040942b608eb866153, type: 3}
+  m_PrefabInstance: {fileID: 2029599339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1366811314
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +271,7 @@ MonoBehaviour:
     PlayersKilled: 0
     WalkedDistance: 0
     BulletShots: 0
+    guns: []
 --- !u!4 &1366811316
 Transform:
   m_ObjectHideFlags: 0
@@ -359,7 +365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830513775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -278.35, y: -359, z: -10}
+  m_LocalPosition: {x: -280.33188, y: -359.96002, z: -17.570347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 361881138}
@@ -812,11 +818,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4640029543507550075, guid: ea8eab3d800fff242a315a081358fb38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4640029543507550075, guid: ea8eab3d800fff242a315a081358fb38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4640029543507550075, guid: ea8eab3d800fff242a315a081358fb38, type: 3}
       propertyPath: m_LocalPosition.z
@@ -852,7 +858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7018699949075840967, guid: ea8eab3d800fff242a315a081358fb38, type: 3}
       propertyPath: m_Name
-      value: Enemy_shooting
+      value: Enemy_Worm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea8eab3d800fff242a315a081358fb38, type: 3}
@@ -863,17 +869,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1798457063, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
       propertyPath: m_Name
-      value: Enemy_melee
-      objectReference: {fileID: 0}
-    - target: {fileID: 1846769574929889440, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
-      propertyPath: m_Layer
-      value: 8
+      value: Enemy_Bug
       objectReference: {fileID: 0}
     - target: {fileID: 3972703736024837695, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
       propertyPath: m_RootOrder

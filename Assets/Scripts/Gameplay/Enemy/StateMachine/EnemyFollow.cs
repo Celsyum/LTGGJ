@@ -12,6 +12,7 @@ public class EnemyFollow : State
     public override void Update()
     {
         controller.Agent.SetDestination(controller.Target.position);
+        controller.RotationTarget = controller.Target.position;
 
         if (controller.IsTargerVisible())
         {

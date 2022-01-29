@@ -17,6 +17,7 @@
         }
         else
         {
+            controller.RotationTarget = controller.GetTargetDirection();
             controller.AttackAction.PerformAction();
         }
     }
