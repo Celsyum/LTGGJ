@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+		movement.Normalize();
 		rb.velocity = new Vector2(movement.x * runSpeed, movement.y * runSpeed);
 		rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
 
