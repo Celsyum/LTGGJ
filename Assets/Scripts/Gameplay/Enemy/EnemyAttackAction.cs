@@ -2,7 +2,7 @@
 
 public class EnemyAttackAction : MonoBehaviour
 {
-    public float AttackDamage { get; set; }
+    public float AttackDamage { get; set; } = 1;
     public float AttackSpeed { get; set; } = 1;
 
     private float attackTimer = 0;

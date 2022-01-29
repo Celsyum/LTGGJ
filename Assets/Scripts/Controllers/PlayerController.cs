@@ -76,4 +76,8 @@ public class PlayerController : MonoBehaviour
 		}
     }
     
+    public void ReceiveDamage(float amount)
+    {
+        Debug.Log($"Received {amount} damage. Need health implementation");
+    }
 }
