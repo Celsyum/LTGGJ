@@ -312,7 +312,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 332463388669940520}
   checkLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 1920
   laserSpawn: {fileID: 1626467532118365894}
 --- !u!114 &3579033693316623778
 MonoBehaviour:

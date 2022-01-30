@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicTrack: MenuMusic
-  highScoreValue: {fileID: 0}
+  highScoreValue: {fileID: 1272459053}
 --- !u!4 &47020839
 Transform:
   m_ObjectHideFlags: 0
@@ -597,6 +597,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4050045812350457444, guid: fef1b9bce67ac084caaa5437d1dcd48d, type: 3}
   m_PrefabInstance: {fileID: 1272459051}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1272459053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9009757505354695832, guid: fef1b9bce67ac084caaa5437d1dcd48d, type: 3}
+  m_PrefabInstance: {fileID: 1272459051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1393137726
 GameObject:
   m_ObjectHideFlags: 0
