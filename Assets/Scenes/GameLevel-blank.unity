@@ -498,6 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269553581}
   - component: {fileID: 269553580}
+  - component: {fileID: 269553582}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -555,6 +556,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269553582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269553579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aad369ce90644b489dedf92f146dec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &296058144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1810,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1830513777}
+    - target: {fileID: 966035187, guid: f4ae6bd7baafb5e4f914f50c797a2628, type: 3}
+      propertyPath: runSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 966035188, guid: f4ae6bd7baafb5e4f914f50c797a2628, type: 3}
+      propertyPath: checkLayers.m_Bits
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 966035189, guid: f4ae6bd7baafb5e4f914f50c797a2628, type: 3}
       propertyPath: m_Mass
       value: 0.0001
@@ -11990,6 +12011,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 142422221}
     m_Modifications:
+    - target: {fileID: 3651871347665573573, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2133609493}
     - target: {fileID: 3651871347665573626, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12025,14 +12050,6 @@ PrefabInstance:
     - target: {fileID: 3651871347665573626, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
       propertyPath: m_SizeDelta.y
       value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3651871347665573626, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0433
-      objectReference: {fileID: 0}
-    - target: {fileID: 3651871347665573626, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 3651871347665573626, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12818,12 +12835,12 @@ MonoBehaviour:
     guns:
     - name: materializatorius
       damage: 100
-      fireRate: 0.3
+      fireRate: 0.2
       type: 0
       color: '#00FF00'
     - name: antimaterializatorius
-      damage: 50
-      fireRate: 0.2
+      damage: 100
+      fireRate: 0.3
       type: 1
       color: '#EE82EE'
 --- !u!4 &1259733414
@@ -15049,6 +15066,7 @@ GameObject:
   - component: {fileID: 2131751081}
   - component: {fileID: 2131751083}
   - component: {fileID: 2131751082}
+  - component: {fileID: 2131751084}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -15125,3 +15143,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2131751084
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131751080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!95 &2133609493 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1874832427, guid: f4ae6bd7baafb5e4f914f50c797a2628, type: 3}
+  m_PrefabInstance: {fileID: 798902488}
+  m_PrefabAsset: {fileID: 0}
