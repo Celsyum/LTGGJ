@@ -12447,10 +12447,12 @@ MonoBehaviour:
       damage: 20
       fireRate: 0.3
       type: 0
+      color: '#00FF00'
     - name: antimaterializatorius
       damage: 20
       fireRate: 0.2
       type: 1
+      color: '#EE82EE'
 --- !u!4 &1259733414
 Transform:
   m_ObjectHideFlags: 0

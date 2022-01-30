@@ -544,13 +544,15 @@ MonoBehaviour:
     BulletShots: 0
     guns:
     - name: materializatorius
-      damage: 20
+      damage: 50
       fireRate: 0.3
       type: 0
+      color: '#00FF00'
     - name: antimaterializatorius
-      damage: 20
+      damage: 25
       fireRate: 0.2
       type: 1
+      color: '#EE82EE'
 --- !u!4 &1707098973
 Transform:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class GunController : MonoBehaviour
 		//gunStatus = GameStateEnum.Mater;
 		findGunData(gunData.type);
 		canFire = 0;
+		updateColor();
 	}
 
 	void findGunData(GunTypeEnum type)
@@ -69,9 +70,21 @@ public class GunController : MonoBehaviour
 			findGunData(GunTypeEnum.Mater);
 			pl.IsGreen = true;
 		}
-		
+
+		updateColor();
 		canFire = 0;   ///reset gun shooting
 		return true;
+	}
+
+	void updateColor()
+	{
+		Color newCol;
+
+		if (ColorUtility.TryParseHtmlString(gunData.color, out newCol))
+		{
+			lineRenderer.startColor = newCol;
+			lineRenderer.endColor = newCol;
+		}
 	}
 
 	void doShooting()
@@ -103,13 +116,13 @@ public class GunController : MonoBehaviour
 			//float distance = Mathf.Abs(hit.point.y - transform.position.y);
 			//float heightError = floatHeight - distance;
 			int layer = hit.collider.gameObject.layer;
-			Debug.Log(layer);
 			if (layer == 7 || layer == 8)
 			{
 				EnemyController en = hit.transform.GetComponent<EnemyController>();
 				if (en != null)
 				{
-					en.Damage(gunData.damage);
+					if ((layer == 7 && pl.IsGreen) || (layer == 8 && !pl.IsGreen))
+						en.Damage(gunData.damage);
 
 					lineRenderer.SetPosition(0, laserSpawn.position);
 					lineRenderer.SetPosition(1, hit.point);
