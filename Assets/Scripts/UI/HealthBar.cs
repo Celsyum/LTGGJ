@@ -32,6 +32,9 @@ public class HealthBar : MonoBehaviour
     private static HealthBar instance;
     private GameStateEnum gameState;
 
+    public bool IsDead = false;
+    public Animator anim;
+
     public static void InstantiateHealthBar(float maxHealthValue, GameStateEnum startingState, float currentHealth)
     {
         instance.ResetBarValues(maxHealthValue, startingState, currentHealth);
@@ -49,6 +52,7 @@ public class HealthBar : MonoBehaviour
 
     private void Awake()
     {
+
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -59,8 +63,15 @@ public class HealthBar : MonoBehaviour
         ChangeBarState(startupPosition);
     }
 
+    public void FixedUpdate()
+    {
+        if (IsDead) anim.SetBool("IsDead", true);
+        if (IsDead == false) anim.SetBool("IsDead", false);
+    }
+
     private void Update()
     {
+
         flashTimer -= Time.deltaTime;
 
         if (flashTimer < 0)
@@ -72,12 +83,13 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    private void CalculateDamage(float damageAmount)
+    public void CalculateDamage(float damageAmount)
     {
         currentValue -= damageAmount;
 
         if (currentValue < 0)
         {
+            IsDead = true;
             currentValue = 0;
 			StartCoroutine(endGame());
         }
@@ -90,7 +102,7 @@ public class HealthBar : MonoBehaviour
 	{
 		try
 		{
-			this.GetComponent<AudioSource>().Play();
+            this.GetComponent<AudioSource>().Play();
 		}
 		catch (System.Exception)
 		{
