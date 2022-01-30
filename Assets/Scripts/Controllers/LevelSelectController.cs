@@ -1,29 +1,26 @@
-using GGJ.Core;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelSelectController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public void LoadScene(int sceneId)
+	{
+		SceneManager.LoadScene(sceneId);
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public void ExitGame()
+	{
+		Application.Quit();
+	}
 
 	public void StartGame(string levelName)
 	{
-		this.GetComponent<AudioSource>().Play();
-		StartCoroutine(loadScene(levelName));
+		GetComponent<AudioSource>().Play();
+		StartCoroutine(LoadLevel(levelName));
 	}
 
-	IEnumerator loadScene(string levelName)
+	private IEnumerator LoadLevel(string levelName)
 	{
 		yield return new WaitForSeconds(.5f);
 		SceneManager.LoadScene(levelName, LoadSceneMode.Single);
