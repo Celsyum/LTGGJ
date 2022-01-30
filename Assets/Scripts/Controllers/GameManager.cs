@@ -30,8 +30,12 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	
+
 	void Awake()
 	{
+		HealthBar.InstantiateHealthBar(stats.maxHealth, stats.startingState, stats.maxHealth/2);
+
 		if (GameManager.instance != null)
 		{
 			if (this.player != null) GameManager.instance.player = this.player;

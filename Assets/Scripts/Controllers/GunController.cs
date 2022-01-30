@@ -27,7 +27,7 @@ public class GunController : MonoBehaviour
 		updateColor();
 	}
 
-	void findGunData(GunTypeEnum type)
+	void findGunData(GameStateEnum type)
 	{
 		foreach (GunData item in stats.guns)
 		{
@@ -60,14 +60,14 @@ public class GunController : MonoBehaviour
 
 	public bool swap()
 	{
-		if (gunData.type == GunTypeEnum.Mater)
+		if (gunData.type == GameStateEnum.Mater)
 		{
-			findGunData(GunTypeEnum.Antimater);
+			findGunData(GameStateEnum.Antimater);
 			pl.IsGreen = false;
 		}
 		else
 		{
-			findGunData(GunTypeEnum.Mater);
+			findGunData(GameStateEnum.Mater);
 			pl.IsGreen = true;
 		}
 
@@ -91,10 +91,10 @@ public class GunController : MonoBehaviour
 	{
 		switch (gunData.type)
 		{
-			case GunTypeEnum.Mater:
+			case GameStateEnum.Mater:
 				StartCoroutine(raycastShooting());
 				break;
-			case GunTypeEnum.Antimater:
+			case GameStateEnum.Antimater:
 				StartCoroutine(raycastShooting());
 				break;
 			default:

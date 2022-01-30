@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+
     [SerializeField]
-    private float spawnRadius = 0, time = 1.5f;
+    private float time = 1.5f;
 
 
     public GameObject[] enemies;
