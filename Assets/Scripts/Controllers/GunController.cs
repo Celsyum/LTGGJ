@@ -132,7 +132,8 @@ public class GunController : MonoBehaviour
 			}
 			else
 			{
-				doEmptyShot();
+				lineRenderer.SetPosition(0, laserSpawn.position);
+				lineRenderer.SetPosition(1, hit.point);
 			}
 
 		}
