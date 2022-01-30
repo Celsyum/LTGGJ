@@ -72,6 +72,7 @@ public class GunController : MonoBehaviour
 		}
 
 		updateColor();
+		HealthBar.ChangeState(gunData.type);
 		canFire = 0;   ///reset gun shooting
 		return true;
 	}
