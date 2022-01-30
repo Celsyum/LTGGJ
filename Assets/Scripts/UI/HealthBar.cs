@@ -108,7 +108,11 @@ public class HealthBar : MonoBehaviour
 		{
 			Debug.Log("no end sound");
 		}
-		GameManager.Instance.Player.GetComponent<PlayerController>().enabled = false;
+
+		PlayerController pl = GameManager.Instance.Player.GetComponent<PlayerController>();
+		pl.movement = Vector2.zero;
+		pl.isAlive = false;
+		pl.enabled = false;
 		GameManager.Instance.Player.GetComponent<BoxCollider2D>().enabled = false;
 		yield return new WaitForSeconds(2f);
 		SceneManager.LoadScene("EndGame", LoadSceneMode.Single);

@@ -13,8 +13,13 @@ public class PlayerController : MonoBehaviour
 	Rigidbody2D rb;
     public Camera cam;
 
-    Vector2 movement;
-    Vector2 mousePos;
+	[HideInInspector]
+    public Vector2 movement;
+	[HideInInspector]
+	public bool isAlive = true;
+
+
+	Vector2 mousePos;
 	GameStats stats;
 	GunController gun;
 
@@ -80,10 +85,12 @@ public class PlayerController : MonoBehaviour
 		rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
 
 		
-
-		float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
-
-		rbTurret.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		if (isAlive)
+		{
+			float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg - 90f;
+			rbTurret.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		}
+		
 
 		if (movement != Vector2.zero)
 		{
