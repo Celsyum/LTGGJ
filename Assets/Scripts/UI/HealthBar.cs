@@ -113,6 +113,7 @@ public class HealthBar : MonoBehaviour
 		pl.movement = Vector2.zero;
 		pl.isAlive = false;
 		pl.enabled = false;
+		pl.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		GameManager.Instance.Player.GetComponent<BoxCollider2D>().enabled = false;
 		yield return new WaitForSeconds(2f);
 		SceneManager.LoadScene("EndGame", LoadSceneMode.Single);
