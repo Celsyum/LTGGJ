@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1798457064}
   - component: {fileID: 1798457065}
   - component: {fileID: 1798457066}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MeleeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
 --- !u!1001 &8657787003197045408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 1798457065}
     - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: attackDistance
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: minimalDistanceToTarget

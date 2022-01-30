@@ -136,8 +136,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1674750015}
     - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: attackDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: projectileSpeed
       value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958995621765322070, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
+      propertyPath: minimalDistanceToTarget
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7633348106599925012, guid: 39471d7c7eb82c14ab5269ed982b8380, type: 3}
       propertyPath: m_Height
