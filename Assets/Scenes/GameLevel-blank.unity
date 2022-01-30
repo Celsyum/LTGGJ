@@ -12749,12 +12749,12 @@ MonoBehaviour:
     BulletShots: 0
     guns:
     - name: materializatorius
-      damage: 50
+      damage: 100
       fireRate: 0.3
       type: 0
       color: '#00FF00'
     - name: antimaterializatorius
-      damage: 100
+      damage: 50
       fireRate: 0.2
       type: 1
       color: '#EE82EE'
