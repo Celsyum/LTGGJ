@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectController : MonoBehaviour
 {
+	[SerializeField] private string clickSFX = "Click";
 	public void LoadScene(int sceneId)
 	{
+		PlayAudio();
 		SceneManager.LoadScene(sceneId);
 	}
 
@@ -24,5 +26,15 @@ public class LevelSelectController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(.5f);
 		SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+	}
+
+	public void PlayAudio()
+	{
+		AudioPlayer.Instance.PlaySoundEffect(clickSFX);
+	}
+
+	public void StopMusic()
+	{
+		AudioPlayer.Instance.StopMusic();
 	}
 }
