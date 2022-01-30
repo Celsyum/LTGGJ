@@ -13,6 +13,7 @@ public class GunController : MonoBehaviour
 	public Transform laserSpawn;
 	private float canFire = 1f;
 	private Vector3 mousePos;
+	private bool isShooting = false;
 	GunData gunData = new GunData();
 
     // Start is called before the first frame update
@@ -52,7 +53,7 @@ public class GunController : MonoBehaviour
 		{
 			canFire = gunData.fireRate;
 			doShooting();
-			return true;
+			return isShooting;
 		}
 		canFire -= Time.deltaTime;
 		return false;
@@ -128,7 +129,11 @@ public class GunController : MonoBehaviour
 					lineRenderer.SetPosition(0, laserSpawn.position);
 					lineRenderer.SetPosition(1, hit.point);
 				}
-				else Debug.Log("no enemy controller, wrong layer");
+				else
+				{
+					Debug.Log("no enemy controller, wrong layer");
+					yield break;
+				}
 			}
 			else
 			{
@@ -143,10 +148,12 @@ public class GunController : MonoBehaviour
 		}
 
 		lineRenderer.enabled = true;
+		isShooting = true;
 
 		yield return new WaitForSeconds(.1f);
 
 		lineRenderer.enabled = false;
+		isShooting = false;
 
 	}
 
