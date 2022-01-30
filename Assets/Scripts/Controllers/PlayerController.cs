@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 movement;
 	[HideInInspector]
 	public bool isAlive = true;
+	public Rigidbody2D rbHulls;
 
 
 	Vector2 mousePos;
@@ -76,6 +77,17 @@ public class PlayerController : MonoBehaviour
         {
 			spriteRenderer.sprite = redturret;
 		}
+
+		if (movement != Vector2.zero)
+		{
+
+			Quaternion toRoation = Quaternion.LookRotation(Vector3.forward, movement);
+			rbHull.rotation = Quaternion.RotateTowards(rbHull.rotation, toRoation, rotationSpeed * Time.fixedDeltaTime);
+		}
+		else
+		{
+
+		}
 	}
 
     void FixedUpdate()
@@ -92,11 +104,7 @@ public class PlayerController : MonoBehaviour
 		}
 		
 
-		if (movement != Vector2.zero)
-		{
-			Quaternion toRoation = Quaternion.LookRotation(Vector3.forward, movement);
-			rbHull.rotation = Quaternion.RotateTowards(rbHull.rotation, toRoation, rotationSpeed * Time.fixedDeltaTime);
-		}
+		
 	}
 
 	void SwapGuns()
@@ -124,7 +132,7 @@ public class PlayerController : MonoBehaviour
     
     public void ReceiveDamage(float amount)
     {
-		CameraShaker.Instance.ShakeCam(8f, 0.2f);
+		CameraShaker.Instance.ShakeCam(10f, 0.5f);
 		HealthBar.RegisterDamage(amount);
     }
 }
