@@ -6,19 +6,19 @@ public class GameManager : MonoBehaviour
 	
 	private static GameManager instance;
 
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
-            return instance;
-        }
-    }
+	public static GameManager Instance
+	{
+		get
+		{
+			if (instance == null)
+			{
+				instance = FindObjectOfType<GameManager>();
+			}
+			return instance;
+		}
+	}
 
-    [SerializeField] private GameObject player;
+	[SerializeField] private GameObject player;
 	[SerializeField] private GameStats _stats;
 
 	public GameObject Player { get => player; }
@@ -36,13 +36,15 @@ public class GameManager : MonoBehaviour
 	{
 		HealthBar.InstantiateHealthBar(stats.maxHealth, stats.startingState, stats.maxHealth/2);
 
+		PlayerPrefs.SetInt("CurrentScore", 0);
+		PlayerPrefs.Save();
+
 		if (GameManager.instance != null)
 		{
 			if (this.player != null) GameManager.instance.player = this.player;
 			Destroy(this.gameObject);
 			return;
 		}
-
 		
 		DontDestroyOnLoad(this.gameObject);
 	}
