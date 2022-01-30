@@ -11930,6 +11930,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 142422221}
     m_Modifications:
+    - target: {fileID: 3651871347665573573, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1274502494}
     - target: {fileID: 3651871347665573626, guid: 0ca1ea9bbb94a4248a8c7e64bb3626cf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12772,6 +12776,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1274502494 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1874832427, guid: f4ae6bd7baafb5e4f914f50c797a2628, type: 3}
+  m_PrefabInstance: {fileID: 798902488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291552121
 GameObject:
   m_ObjectHideFlags: 0
