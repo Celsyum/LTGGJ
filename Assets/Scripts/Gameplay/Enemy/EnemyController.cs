@@ -78,6 +78,7 @@ public class EnemyController : StateMashine
     {
         EnemyAnimator.SetBool("isDead", true);
         currentState = null;
+        Agent.enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
 		GetComponent<AudioSource>().Play();
     }
