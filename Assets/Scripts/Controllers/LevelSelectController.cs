@@ -1,4 +1,5 @@
 using GGJ.Core;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,13 @@ public class LevelSelectController : MonoBehaviour
 
 	public void StartGame(string levelName)
 	{
+		this.GetComponent<AudioSource>().Play();
+		StartCoroutine(loadScene(levelName));
+	}
+
+	IEnumerator loadScene(string levelName)
+	{
+		yield return new WaitForSeconds(.5f);
 		SceneManager.LoadScene(levelName, LoadSceneMode.Single);
 	}
 }

@@ -310,6 +310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 332463388669940520}
+  checkLayers:
+    serializedVersion: 2
+    m_Bits: 384
   laserSpawn: {fileID: 1626467532118365894}
 --- !u!114 &3579033693316623778
 MonoBehaviour:
@@ -323,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee7f3b3e22545f44866817b8f1a0f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 24594320a99e2c14eafb899702d4611c, type: 3}
   volume: 0.5
   rbTurret: {fileID: 7951922411970598207}
   rbHull: {fileID: 3579033691522261176}

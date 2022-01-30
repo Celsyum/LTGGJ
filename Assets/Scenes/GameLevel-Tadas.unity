@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -1252,7 +1251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -11349,7 +11347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -11459,7 +11456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -11507,7 +11503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -12305,7 +12300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -12551,7 +12545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -12923,7 +12916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -13735,7 +13727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -14397,7 +14388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c0aacefd394e048ba3c0565caf7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
   time: 5
   enemies:
   - {fileID: 1594904134002331267, guid: 93db7e561f033d544a79b8dd808c78f0, type: 3}
@@ -14641,6 +14631,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2064326687}
   _stats:
+    maxHealth: 200
+    startingState: 0
     PlayersKilled: 0
     WalkedDistance: 0
     BulletShots: 0

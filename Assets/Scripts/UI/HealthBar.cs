@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -77,13 +79,28 @@ public class HealthBar : MonoBehaviour
         if (currentValue < 0)
         {
             currentValue = 0;
+			StartCoroutine(endGame());
         }
 
         fillAreaImage.fillAmount = currentValue / maxValue;
         flashTimer = flashTimerDuration;
     }
 
-    private void TryChangingBarState(GameStateEnum newState)
+	IEnumerator endGame()
+	{
+		try
+		{
+			this.GetComponent<AudioSource>().Play();
+		}
+		catch (System.Exception)
+		{
+			Debug.Log("no end sound");
+		}		
+		yield return new WaitForSeconds(3f);
+		SceneManager.LoadScene("EndGame", LoadSceneMode.Single);
+	}
+
+	private void TryChangingBarState(GameStateEnum newState)
     {
         if (gameState == newState) return;
 

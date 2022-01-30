@@ -79,6 +79,7 @@ public class EnemyController : StateMashine
         EnemyAnimator.SetBool("isDead", true);
         currentState = null;
         GetComponent<BoxCollider2D>().enabled = false;
+		GetComponent<AudioSource>().Play();
     }
 
     public bool IsTargerVisible()
