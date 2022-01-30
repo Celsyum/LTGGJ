@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
     public void ReceiveDamage(float amount)
     {
         Debug.Log($"Received {amount} damage.");
+		CameraShaker.Instance.ShakeCam(8f, 0.1f);
 		HealthBar.RegisterDamage(amount);
     }
 }
