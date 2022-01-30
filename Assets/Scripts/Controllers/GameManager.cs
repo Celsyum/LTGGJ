@@ -39,12 +39,13 @@ public class GameManager : MonoBehaviour
 		PlayerPrefs.SetInt("CurrentScore", 0);
 		PlayerPrefs.Save();
 
-		if (GameManager.instance != null)
+		if (this.player != null) GameManager.Instance.player = this.player;
+		if (GameManager.Instance != this)
 		{
-			if (this.player != null) GameManager.instance.player = this.player;
 			Destroy(this.gameObject);
 			return;
 		}
+		
 		
 		DontDestroyOnLoad(this.gameObject);
 	}
