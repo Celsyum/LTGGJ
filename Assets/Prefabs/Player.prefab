@@ -50,7 +50,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e7cdc4f8c8643ff4a821b103fdfb3513, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1728701
+    widthMultiplier: 1.6599765
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -124,7 +124,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 3
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -331,6 +331,9 @@ MonoBehaviour:
   rbTurret: {fileID: 7951922411970598207}
   rbHull: {fileID: 3579033691522261176}
   cam: {fileID: 0}
+  movement: {x: 0, y: 0}
+  isAlive: 1
+  rbHulls: {fileID: 0}
   runSpeed: 10
   rotationSpeed: 720
   anim: {fileID: 0}
