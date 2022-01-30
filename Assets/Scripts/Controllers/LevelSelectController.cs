@@ -37,4 +37,12 @@ public class LevelSelectController : MonoBehaviour
 	{
 		AudioPlayer.Instance.StopMusic();
 	}
+
+	public void ResetHighScore()
+	{
+		PlayerPrefs.SetInt("HighScore", 0);
+		PlayerPrefs.Save();
+
+		PlayAudio();
+	}
 }
