@@ -83,6 +83,7 @@ public class EnemyController : StateMashine
 
 		PlayerPrefs.SetInt("CurrentScore", PlayerPrefs.GetInt("CurrentScore", 0) + killScore);
 		PlayerPrefs.Save();
+		GameManager.Instance.UpdateScore();
 
 		GetComponent<BoxCollider2D>().enabled = false;
 		GetComponent<AudioSource>().Play();

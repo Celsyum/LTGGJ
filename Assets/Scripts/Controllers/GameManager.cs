@@ -1,5 +1,6 @@
 using UnityEngine;
 using GGJ.Core;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	[SerializeField] private GameObject player;
+	[SerializeField] private TMP_Text scoreValue;
 	[SerializeField] private GameStats _stats;
 
 	public GameObject Player { get => player; }
@@ -29,8 +31,6 @@ public class GameManager : MonoBehaviour
 			_stats = value;
 		}
 	}
-
-	
 
 	void Awake()
 	{
@@ -49,4 +49,8 @@ public class GameManager : MonoBehaviour
 		DontDestroyOnLoad(this.gameObject);
 	}
 
+	public void UpdateScore()
+	{
+		scoreValue.text = PlayerPrefs.GetInt("CurrentScore", 0).ToString();
+	}
 }
